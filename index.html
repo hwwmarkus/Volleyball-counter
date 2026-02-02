@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volleyball Scoreboard</title>
+  <meta name="theme-color" content="#0f172a" />
+  <!-- iOS Add to Home Screen support -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Volleyball Scoreboard" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>Volleyball Scoreboard</h1>
+      <div class="controls">
+        <button id="fullscreenBtn" class="btn">Fullscreen</button>
+      </div>
+    </header>
+
+    <main class="scoreboard">
+      <section class="side left">
+        <div class="sets">Sets: <span id="setsLeft">0</span></div>
+        <input class="team" type="text" id="teamLeft" value="Home" aria-label="Left team name" />
+        <div class="score" id="scoreLeft">0</div>
+        <div class="buttons">
+          <button class="btn big" id="incLeft">+1</button>
+          <button class="btn big" id="decLeft">-1</button>
+        </div>
+      </section>
+
+      <section class="divider">
+        <span class="versus">Set <span id="currentSet">1</span><span id="deuceFlag" class="deuce" style="display:none"> • Deuce</span></span>
+        <div class="final-score"><span id="finalScore"></span></div>
+        <div class="center-controls">
+          <button id="resetBtn" class="btn big danger">Reset Match</button>
+        </div>
+      </section>
+
+      <section class="side right">
+        <div class="sets">Sets: <span id="setsRight">0</span></div>
+        <input class="team" type="text" id="teamRight" value="Away" aria-label="Right team name" />
+        <div class="score" id="scoreRight">0</div>
+        <div class="buttons">
+          <button class="btn big" id="incRight">+1</button>
+          <button class="btn big" id="decRight">-1</button>
+        </div>
+      </section>
+    </main>
+
+    <section class="history">
+      <div class="history-header">
+        <h2>History</h2>
+        <button id="clearHistoryBtn" class="btn">Clear History</button>
+      </div>
+      <ul id="historyList" class="history-list"></ul>
+    </section>
+
+    <footer class="footer"></footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Register service worker for offline/PWA (works over HTTPS or localhost)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
