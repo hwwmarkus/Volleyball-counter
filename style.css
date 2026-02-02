@@ -6,7 +6,7 @@ body {
   background: #0f172a; /* slate-900 */
   color: #e2e8f0; /* slate-200 */
 }
-.app { display: flex; flex-direction: column; min-height: 100%; padding-bottom: 380px; }
+.app { display: flex; flex-direction: column; min-height: 100%; padding-bottom: 160px; }
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 20px; background: #111827;
@@ -21,12 +21,12 @@ body {
 .side { display: grid; grid-template-rows: auto 1fr auto; gap: 16px; text-align: center; }
 .sets { font-size: 32px; font-weight: 700; color: #cbd5e1; }
 .team {
-  font-size: 40px; font-weight: 700; padding: 8px 12px; border-radius: 8px;
+  font-size: clamp(24px, 4vw, 40px); font-weight: 700; padding: 8px 12px; border-radius: 8px;
   outline: none; background: #1f2937; border: 1px solid #334155;
   width: 100%; text-align: center; color: #e2e8f0;
 }
 .team:focus { border-color: #38bdf8; }
-.score { font-size: 160px; font-weight: 800; line-height: 1; }
+.score { font-size: clamp(80px, 25vw, 160px); font-weight: 800; line-height: 1; }
 .buttons { display: flex; gap: 12px; justify-content: center; }
 .divider { font-size: 28px; color: #94a3b8; text-align: center; }
 .versus { display: inline-block; padding: 8px 16px; background: #1f2937; border-radius: 999px; }
@@ -46,11 +46,11 @@ body {
 .footer { padding: 12px 20px; background: #0b1324; }
 .help { font-size: 14px; color: #a5b4fc; }
 
-.history { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 16px 20px; max-width: 1200px; margin: 0 auto; background: #0b1324; }
+.history { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 10px 16px; max-width: 1200px; margin: 0 auto; background: #0b1324; }
 .history-header { display: flex; align-items: center; justify-content: space-between; }
-.history-header h2 { margin: 0; font-size: 22px; color: #cbd5e1; }
-.history-list { list-style: none; margin: 12px 0 0; padding: 0; max-height: 135px; overflow: auto; border-radius: 8px; background: #0b1324; }
-.history-list li { padding: 12px 14px; border-bottom: 1px solid #1f2937; font-size: 18px; color: #e2e8f0; display: flex; gap: 8px; justify-content: space-between; }
+.history-header h2 { margin: 0; font-size: 18px; color: #cbd5e1; }
+.history-list { list-style: none; margin: 8px 0 0; padding: 0; max-height: 90px; overflow-y: auto; border-radius: 8px; background: #0b1324; }
+.history-list li { padding: 8px 12px; border-bottom: 1px solid #1f2937; font-size: 16px; color: #e2e8f0; display: flex; gap: 8px; justify-content: space-between; }
 .history-list li:last-child { border-bottom: none; }
 .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
 .badge.plus { background: #22d3ee; color: #0b1020; }
@@ -59,9 +59,6 @@ body {
 .badge.reset { background: #ef4444; color: #0b1020; }
 
 @media (max-width: 768px) {
-  .score { font-size: 120px; }
-  .team { font-size: 28px; }
-  .sets { font-size: 24px; }
-  .history-list { max-height: 135px; }
-  .app { padding-bottom: 260px; }
+  /* Fonts now use clamp, so explicit overrides are less needed, but we keep safety checks */
+  .app { padding-bottom: 150px; }
 }
