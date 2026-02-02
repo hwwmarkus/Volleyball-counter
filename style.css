@@ -46,7 +46,12 @@ body {
 .footer { padding: 12px 20px; background: #0b1324; }
 .help { font-size: 14px; color: #a5b4fc; }
 
-.history { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 10px 16px; max-width: 1200px; margin: 0 auto; background: #0b1324; }
+.history {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 50; padding: 10px 16px; width: 90%; max-width: 500px;
+  background: #0b1324; border-radius: 12px; border: 1px solid #1f2937;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
 .history-header { display: flex; align-items: center; justify-content: space-between; }
 .history-header h2 { margin: 0; font-size: 18px; color: #cbd5e1; }
 .history-list { list-style: none; margin: 8px 0 0; padding: 0; max-height: 90px; overflow-y: auto; border-radius: 8px; background: #0b1324; }
