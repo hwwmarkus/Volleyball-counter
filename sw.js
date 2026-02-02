@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vb-scoreboard-v1';
+const CACHE_NAME = 'vb-scoreboard-v2';
 const ASSETS = [
   './',
   './index.html',
